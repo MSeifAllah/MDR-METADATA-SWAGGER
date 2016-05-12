@@ -1,9 +1,9 @@
 {
-  "name": "MDR_METADATA_SWAGGER",
+  "name": "MDR-METADATA-SWAGGER",
   "version": "1.0.0",
   "description": "module de génération des metadata et docs swagger",
   "main": "index.js",
-   "typings": "./lib/definitions/MDR_METADATA_SWAGGER.d.ts",
+   "typings": "./lib/definitions/MDR-METADATA-SWAGGER.d.ts",
   "scripts": {
     "test": "mocha test"
   },
