@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+  <edmx:DataServices>
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="test">
+      <EntityType Name="e2">
+        <Property Name="i1" Type="Edm.String"/>
+        <Property Name="i2" Type="Edm.Int64"/>
+        <Property Name="i7" Type="Edm.Int16"/>
+        <Property Name="i3" Type="Edm.DateTime"/>
+        <Property Name="i4" Type="Edm.DateTime"/>
+        <Property Name="i5" Type="Edm.Binary"/>
+        <Property Name="i6" Type="Edm.Decimal"/>
+        <Property Name="id" Type="Edm.Int32" Nullable="false"/>
+        <NavigationProperty Name="NavigationSimple" Type="test.e3"/>
+        <NavigationProperty Name="NavigationArray" Type="Collection(test.e4)"/>
+        <Key>
+          <PropertyRef name="id"/>
+        </Key>
+      </EntityType>
+      <EntityType Name="e3">
+        <Property Name="i12" Type="Edm.String"/>
+        <Property Name="i3" Type="Edm.Int32"/>
+      </EntityType>
+      <EntityType Name="e4">
+        <Property Name="prop1" Type="Edm.String"/>
+        <Property Name="prop2" Type="Edm.Int32"/>
+      </EntityType>
+      <EntityContainer Name="Context">
+        <EntitySet EntityType="test.e2Type" Name="e2"/>
+        <EntitySet EntityType="test.e3Type" Name="e3"/>
+        <EntitySet EntityType="test.e4Type" Name="e4"/>
+      </EntityContainer>
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>

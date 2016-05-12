@@ -1,0 +1,27 @@
+{
+  "name": "npm",
+  "version": "1.0.0",
+  "description": "module de génération des metadata et docs swagger",
+  "main": "index.js",
+   "typings": "./lib/definitions/MdrMetadatSwagger.d.ts",
+  "scripts": {
+    "test": "mocha test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "to do"
+  },
+  "author": "MAHFOUDHI Seif Allah",
+  "license": "ISC",
+  "devDependencies": {
+    "del": "latest",
+    "dts-bundle": "latest",
+    "gulp": "latest",
+    "gulp-typescript": "latest",
+    "merge2": "latest",
+    "run-sequence": "latest"
+  },
+  "dependencies": {
+    "xmlbuilder": "latest"
+  }
+}
