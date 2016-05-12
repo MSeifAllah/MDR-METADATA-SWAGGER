@@ -1,5 +1,5 @@
 {
-  "name": "npm",
+  "name": "MDR-METADATA-SWAGGER",
   "version": "1.0.0",
   "description": "module de génération des metadata et docs swagger",
   "main": "index.js",
