@@ -19,7 +19,7 @@ gulp.task('clean', function () {
 
 gulp.task('definition-bundle', function () {
     dts.bundle({
-        name: 'MDR_METADATA_SWAGGER',
+        name: 'MDR-METADATA-SWAGGER',
         main: 'lib/definitions/index.d.ts',
         exclude: /.*typings.*/,
         verbose: false
