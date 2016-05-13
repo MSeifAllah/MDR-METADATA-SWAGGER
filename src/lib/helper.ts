@@ -23,7 +23,6 @@ export function getJsonSwaggerStructure(titre: string, host, protocol): any {
     return jsonSwagger;
 }
 
-
 let filter = {
     "in": "query",
     "name": "$filter",
@@ -74,11 +73,32 @@ let orderby = {
     "required": false,
     "type": "string"
 };
-
-export function getDefaultParametersODATA():any {
+ let keyParam =  {
+                "name": "key",
+                "in": "path",
+                "required": true,
+                "type": "string"
+            };
+  let tenantId = {
+    "in": "query",
+    "name": "tenantId",
+    "description": "tenant Id",
+    "required": true,
+    "type": "integer"
+};          
+function getBodyParametre(schemaCollection:any):any{
     
-    return [filter, select, count, top, skip, expand, orderby]
-    
+    let body = {
+                "in": "body",
+                "name": "body",
+                "description": "objet ",
+                "required": true,
+                "schema": schemaCollection
+            }
+   return body;
+}
+export function getDefaultParametersODATA():any { 
+    return [filter, select, count, top, skip, expand, orderby,tenantId]
 }
 
 export function getSwaggerGet (collectionName : string, schemaCollection : any, params : any):any{
@@ -114,13 +134,7 @@ export function getSwaggerPost(collectionName : string , schemaCollection : any 
         "description": "POST " + collectionName,
         "tags": [collectionName],
         "parameters": [
-            {
-                "in": "body",
-                "name": "body",
-                "description": "objet ",
-                "required": true,
-                "schema": schemaCollection
-            }
+           getBodyParametre(schemaCollection),tenantId
         ],
         "responses": {
             "200": {
@@ -145,12 +159,7 @@ export function getSwaggerDeleteById(collectionName:string) :any {
         "description":"DELETE " + collectionName,
         "tags": [collectionName],
         "parameters": [
-            {
-                "name": "key",
-                "in": "path",
-                "required": true,
-                "type": "string"
-            }
+            keyParam,tenantId
         ],
         "responses": {
             "200": {
@@ -175,19 +184,9 @@ export function getSwaggerPatch(collectionName:string,schemaCollection:any) :any
         "description": "PATCH " + collectionName,
         "tags": [collectionName],
         "parameters": [
-            {
-                "name": "key",
-                "in": "path",
-                "required": true,
-                "type": "string"
-            },
-            {
-                "in": "body",
-                "name": "body",
-                "description": "objet ",
-                "required": true,
-                "schema": schemaCollection
-            }
+            keyParam,
+            getBodyParametre(schemaCollection),
+            tenantId
         ],
         "responses": {
             "200": {
@@ -209,12 +208,8 @@ export function getSwaggerGetById(collectionName:string) :any{
         "description": "GET " + collectionName,
         "tags": [collectionName],
         "parameters": [select,
-            {
-                "name": "key",
-                "in": "path",
-                "required": true,
-                "type": "string"
-            }
+                    keyParam,
+                    tenantId
         ],
         "responses": {
             "200": {
@@ -236,19 +231,9 @@ export function getSwaggerPut(collectionName:string,schemaCollection:any) :any{
         "description": "PUT " + collectionName,
         "tags": [collectionName],
         "parameters": [
-            {
-                "name": "key",
-                "in": "path",
-                "required": true,
-                "type": "string"
-            },
-            {
-                "in": "body",
-                "name": "body",
-                "description": "objet ",
-                "required": true,
-                "schema": schemaCollection
-            }
+            keyParam,
+            getBodyParametre(schemaCollection),
+            tenantId
         ],
         "responses": {
             "200": {
