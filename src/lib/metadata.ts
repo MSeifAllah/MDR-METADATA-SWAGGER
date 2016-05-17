@@ -47,7 +47,7 @@ function getEntitiesType(model: any,nameSpace: string): any{
         let propertyNavigation = [];
         let entityType = {
             "EntityType": {
-                "@Name": model.name,
+                "@Name": model.name+ "Type",
                 "Property": []
                // "Key":{ "PropertyRef":[{"@name" : "id"}] }
             }
